@@ -76,20 +76,27 @@ function Dettagli() {
 
       {/* Card per il giorno corrente */}
       {currentDay && (
-        <div className="row mb-4">
-          <div className="col-md-4">
-            <div className="card shadow-sm">
+        <div className="row mb-5 justify-content-center">
+          <div className="col-md-6 col-lg-4">
+            <div className="card shadow-lg border-primary">
               <img
-                src={`https://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${currentDay.weather[0].icon}@4x.png`}
                 alt={currentDay.weather[0].description}
-                className="card-img-top"
+                className="card-img-top p-4"
               />
               <div className="card-body text-center">
-                <h5 className="card-title">{getNameDay(currentDay.dt_txt)}</h5>
+                <h5 className="card-title fs-3 fw-bold text-primary mb-3">
+                  {getNameDay(currentDay.dt_txt)}
+                </h5>
                 <p className="card-text">
-                  Temperatura: {currentDay.main.temp}°C
+                  🌡️ Temperatura: <strong>{currentDay.main.temp}°C</strong>
                 </p>
                 <p className="card-text">
+                  🔻 Min: <strong>{currentDay.main.temp_min}°C</strong> | 🔺
+                  Max: <strong>{currentDay.main.temp_max}°C</strong>
+                </p>
+
+                <p className="card-text fst-italic text-capitalize text-muted">
                   Condizioni: {currentDay.weather[0].description}
                 </p>
               </div>
@@ -99,9 +106,9 @@ function Dettagli() {
       )}
 
       {/* Previsioni settimanali */}
-      <div className="row">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">
         {forecast.map((day, index) => (
-          <div key={index} className="col-md-4 mb-4">
+          <div key={index} className="col px-2">
             <CardSmall day={day} />
           </div>
         ))}

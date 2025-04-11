@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import Dettagli from "./Dettagli";
+import { Spinner } from "react-bootstrap";
 
 function Home() {
   const [weather, setWeather] = useState(null);
@@ -14,17 +15,17 @@ function Home() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=it&appid=${apiKey}`;
 
   const handleSearchChange = (event) => {
-    setSearch(event.target.value); // Imposta il valore della ricerca
+    setSearch(event.target.value);
   };
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     setCity(search);
-    setSearch(""); // Pulisce la barra di ricerca
+    setSearch("");
   };
 
   useEffect(() => {
-    if (!city) return; // Non fare la fetch se la città è vuota
+    if (!city) return;
     setLoading(true);
     setError(null);
 
@@ -48,7 +49,6 @@ function Home() {
   return (
     <div className="container py-4">
       <h1 className="mb-4 text-center">Meteo</h1>
-
       {/* Barra di ricerca */}
       <form
         onSubmit={handleSearchSubmit}
@@ -63,14 +63,12 @@ function Home() {
             placeholder="Cerca una città"
           />
           <button type="submit" className="btn btn-primary rounded-pill">
-            Cerca
+            {loading ? <Spinner animation="border" size="sm" /> : "Cerca"}
           </button>
         </div>
       </form>
-
       {loading && <p className="text-center">Caricamento...</p>}
       {error && <p className="text-center text-danger">Errore: {error}</p>}
-
       {weather && (
         <div className="card mx-auto" style={{ maxWidth: "400px" }}>
           <div className="card-body text-center">
