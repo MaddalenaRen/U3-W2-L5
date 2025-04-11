@@ -28,7 +28,7 @@ function Dettagli() {
   const [error, setError] = useState(null);
 
   const apiKey = "aa6354ec4cfda784e7dcdf2964902721";
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&lang=it&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},it&units=metric&lang=it&appid=${apiKey}`;
 
   useEffect(() => {
     setLoading(true);
@@ -76,7 +76,7 @@ function Dettagli() {
 
       {/* Card per il giorno corrente */}
       {currentDay && (
-        <div className="row mb-5 justify-content-center">
+        <div className="row mb-5 justify-content-center ">
           <div className="col-md-6 col-lg-4">
             <div className="card shadow-lg border-primary">
               <img
@@ -106,7 +106,7 @@ function Dettagli() {
       )}
 
       {/* Previsioni settimanali */}
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 justify-content-center">
         {forecast.map((day, index) => (
           <div key={index} className="col px-2">
             <CardSmall day={day} />
