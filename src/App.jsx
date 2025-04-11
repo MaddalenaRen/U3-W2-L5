@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="d-flex flex-column min-vh-100">
         <MeteoNavbar />
-        <main className="flex-grow-1 bg-info">
+        <main className="flex-grow-1 bg-main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dettagli/:cityName" element={<Dettagli />} />
