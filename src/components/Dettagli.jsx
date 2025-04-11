@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import CardSmall from "./cardSmall";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import CardBig from "./CardBig";
 
 const giorniDellaSettimana = [
   "Domenica",
@@ -51,12 +52,13 @@ function Dettagli() {
         const todayForecast = data.list.find((item) =>
           item.dt_txt.startsWith(todayDateString)
         );
-        setCurrentDay(todayForecast);
+        setCurrentDay(data.list[0]);
 
         // Filtra le previsioni per orario "12:00:00"
         const filteredData = data.list.filter((item) =>
-          item.dt_txt.includes("12:00:00")
+          item.dt_txt.includes("00:00:00")
         );
+
         setForecast(filteredData);
         setLoading(false);
       })
@@ -75,35 +77,7 @@ function Dettagli() {
       {error && <p className="text-center text-danger">Errore: {error}</p>}
 
       {/* Card per il giorno corrente */}
-      {currentDay && (
-        <div className="row mb-5 justify-content-center ">
-          <div className="col-md-6 col-lg-4">
-            <div className="card shadow-lg border-primary">
-              <img
-                src={`https://openweathermap.org/img/wn/${currentDay.weather[0].icon}@4x.png`}
-                alt={currentDay.weather[0].description}
-                className="card-img-top p-4"
-              />
-              <div className="card-body text-center">
-                <h5 className="card-title fs-3 fw-bold text-primary mb-3">
-                  {getNameDay(currentDay.dt_txt)}
-                </h5>
-                <p className="card-text">
-                  🌡️ Temperatura: <strong>{currentDay.main.temp}°C</strong>
-                </p>
-                <p className="card-text">
-                  🔻 Min: <strong>{currentDay.main.temp_min}°C</strong> | 🔺
-                  Max: <strong>{currentDay.main.temp_max}°C</strong>
-                </p>
-
-                <p className="card-text fst-italic text-capitalize text-muted">
-                  Condizioni: {currentDay.weather[0].description}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <CardBig currentDay={currentDay} />
 
       {/* Previsioni settimanali */}
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4 justify-content-center">

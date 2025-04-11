@@ -5,6 +5,7 @@ import MeteoNavbar from "./components/MeteoNavbar";
 import MeteoFooter from "./components/MeteoFooter";
 import Dettagli from "./components/Dettagli";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   return (

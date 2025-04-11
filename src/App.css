@@ -1,3 +1,33 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('./assets/pexels-photo-1431822.jpeg');
+  background-size: cover; /* Copre tutta l'area della finestra */
+  background-position: center center; /* Centra l'immagine */
+  background-attachment: fixed; /* Fissa l'immagine di sfondo */
+}
+
+
+
 .bg-main{
   background-color: rgb(130 165 175 / 18%) !important;
+}
+
+.weather-card {
+  background: rgba(0, 123, 255, 0.15); /* colore blu trasparente */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-top: -10px;
 }
