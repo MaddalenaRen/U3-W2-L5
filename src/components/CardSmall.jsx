@@ -1,4 +1,5 @@
 import React from "react";
+import getWeatherIcon from "./GetWeatherIcons";
 
 const giorniDellaSettimana = [
   "Domenica",
@@ -18,9 +19,9 @@ function getNameDay(dateString) {
 
 function CardSmall({ day }) {
   return (
-    <div className="card h-100">
+    <div className="card h-100 weather-card ">
       <img
-        src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+        src={getWeatherIcon(day.weather[0].main)}
         alt={day.weather[0].description}
         className="card-img-top"
       />

@@ -1,3 +1,5 @@
+import getWeatherIcon from "./GetWeatherIcons";
+
 function CardBig(prop) {
   if (!prop.currentDay || !prop.currentDay.weather) {
     return null;
@@ -23,7 +25,7 @@ function CardBig(prop) {
       <div className="col-md-6 col-lg-4">
         <div className="card weather-card text-white shadow-lg border- p-3">
           <img
-            src={`https://openweathermap.org/img/wn/${prop.currentDay.weather[0].icon}@4x.png`}
+            src={getWeatherIcon(prop.currentDay.weather[0].main)}
             alt={prop.currentDay.weather[0].description}
             className="card-img-top weather-icon mx-auto"
           />

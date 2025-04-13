@@ -70,7 +70,7 @@ function Dettagli() {
 
   return (
     <div className="container py-4">
-      <h1 className="mb-4 text-center text-primary">
+      <h1 className="mb-4 text-center text-white fw-bold fs-1">
         Previsioni meteo per {cityName}
       </h1>
       {loading && <p className="text-center">Caricamento...</p>}

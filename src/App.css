@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url('./assets/pexels-photo-1431822.jpeg');
+  background-image: url('./assets/cielo-pixabay-531756.jpg');
   background-size: cover; /* Copre tutta l'area della finestra */
   background-position: center center; /* Centra l'immagine */
   background-attachment: fixed; /* Fissa l'immagine di sfondo */
@@ -27,7 +27,7 @@ body {
 }
 
 .weather-icon {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin-top: -10px;
 }
